@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Noticias CDAM: noticias de la comunidad y comentarios.">
+        <meta name="theme-color" content="#e76f51">
+        <title>CDAM Noticias</title>
+        <link rel="stylesheet" href="/styles.css">
+        <script src="/app.js" defer></script>
+    </head>
+    <body>
+        <main id="login">
+            <h1>CDAM Noticias</h1>
+            <form id="readerLoginForm">
+                <label for="password">Ingresa la contraseña para ver las noticias</label>
+                <input id="password" type="password" autocomplete="current-password" required>
+                <button type="submit">Entrar</button>
+                <p id="readerMessage" role="alert" aria-live="polite"></p>
+            </form>
+            <h2>Acceso para publicar</h2>
+            <form id="adminLoginForm">
+                <label for="adminUsername">Usuario administrador</label>
+                <input id="adminUsername" autocomplete="username" required>
+                <label for="adminPassword">Contraseña de administrador</label>
+                <input id="adminPassword" type="password" autocomplete="current-password" required>
+                <button type="submit">Iniciar sesión</button>
+                <p id="adminLoginMessage" role="alert" aria-live="polite"></p>
+            </form>
+        </main>
+
+        <main id="news" hidden>
+            <h1>Noticia del dia</h1>
+            <p>Noticia de última hora. Hoy, <time class="currentDate"></time>, sucedieron dos cosas: la explosión de un squishy y se recogieron los libros sueltos para llevarlos a dirección.</p>
+            <section id="articles" aria-label="Noticias"></section>
+
+            <section id="adminPanel" aria-labelledby="adminHeading" hidden>
+                <h2 id="adminHeading">Agregar una noticia</h2>
+                <form id="newsForm">
+                    <label for="newsTitle">Título de la noticia</label>
+                    <input id="newsTitle" maxlength="120" required>
+                    <label for="newsBody">Contenido de la noticia</label>
+                    <textarea id="newsBody" rows="5" maxlength="3000" required></textarea>
+                    <button type="submit">Publicar noticia</button>
+                    <p id="publishMessage" role="status" aria-live="polite"></p>
+                </form>
+            </section>
+            <p id="sessionMessage" aria-live="polite"></p>
+            <button id="logoutButton" type="button">Cerrar sesión</button>
+        </main>
+
+    </body>
+</html>
